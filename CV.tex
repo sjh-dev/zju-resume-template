@@ -119,17 +119,17 @@
 \textbf{快影后端开发} \hfill 2025.09 -- 2026.04 \titlebreak
 后端开发实习生
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-  \item \textbf{AI 智能素材标注与视频包装链路建设}
+  \item \textbf{AI 智能素材标注与视频包装WorkFlow建设}
   \begin{itemize}[nosep]
-    \item \textbf{AI 特征库建设}：负责素材智能标注链路设计与研发，对接底层 AI 工作流获取视频特征；基于 \textbf{Elasticsearch} 搭建正排索引支撑毫秒级检索，并同步落盘至 DB，打通 AI 特征上下游流转。
-    \item \textbf{自动化视频包装}：扩展现有 AI 工作流系统，搭建以 AI 为核心的视频包装任务流；支持用户输入视频与风格配置后，自动检索 ES 素材特征并渲染生成 AI 视频效果，提升内容创作效率。
+    \item \textbf{AI 特征库建设}：负责素材智能标注链路设计与研发，对接LLM获取视频特征；基于 \textbf{Elasticsearch} 搭建正排索引支撑毫秒级检索，并同步落盘至 DB，打通 AI 特征上下游流转。
+    \item \textbf{自动化视频包装}：扩展并开发现有 AI WorkFlow系统，搭建以 AI 为核心的视频包装任务流；支持用户输入视频与风格配置后，自动检索 ES 素材特征并渲染生成 AI 视频效果，提升内容创作效率。
   \end{itemize}
   \item \textbf{千万级用户数据中心架构设计与优化}
   \begin{itemize}[nosep]
     \item \textbf{海量数据存储与同步}：针对 \textbf{5000 万}级用户底表，设计并落地 \textbf{MySQL 分表}方案；搭建定时流转任务，实现 Hive 到业务 DB 的高效增量同步，支撑下游高并发调用。
-    \item \textbf{数据库性能调优}：引入「新用户空数据过滤」机制，拦截大量无效穿透查询，降低 DB 集群压力，保障数据中心高可用。
+    \item \textbf{数据库性能调优}：使用新用户空数据过滤机制，拦截大量无效穿透查询，降低 DB 集群压力，保障数据中心高可用，并通过定时任务流转每日数据，减少DB成本。
   \end{itemize}
-  \item \textbf{商业化 DSP 广告归因系统对接}
+  \item \textbf{商业化 DSP 广告归因系统对接以及广告弹窗开发}
   \begin{itemize}[nosep]
     \item \textbf{多维归因链路升级}：对接多家外部广告服务商（如巨量引擎），实现投放报表自动化拉取与转化数据回传；扩充下发维度与字段，提升多维归因覆盖率与准确性。
     \item \textbf{线上故障排查}：处理巨量引擎报表跨年拉取异常，定位并修复日期格式解析偏差，保障商业化结算数据准确性。
@@ -159,13 +159,13 @@
   \item \textbf{数据存储：} 熟悉 MySQL 索引、事务与锁，具备分表设计、慢查询分析与联合索引优化经验；熟悉 Redis 缓存与常见高并发问题（穿透 / 击穿 / 雪崩）。
   \item \textbf{中间件与大数据：} 熟悉 Elasticsearch 检索与索引构建；了解 Hive 离线数仓同步及 Spark / Hadoop 生态基础。
   \item \textbf{计算机基础：} 熟悉 TCP/IP、HTTP/HTTPS；掌握操作系统进程通信、死锁等核心概念；具备线上日志排查与链路定位能力。
-  \item \textbf{AIGC方面：} 熟悉使用编程工具如claude code，熟悉RAG 、Agent、Prompt、AI WorkFlow等AIGC相关技术。
+  \item \textbf{AIGC方面：}熟悉RAG 、Agent、Prompt、AI WorkFlow等AIGC相关技术，并有过搭建成熟AI工作流的工程经历。
 \end{itemize}
 %% ==================== 社会实践与校园经历 ====================
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 社会实践与校园经历}
 \begin{itemize}[nosep]
   \item \textbf{社会实践}：积极参与社会志愿者活动，获得50个小时志愿时长。
-  \item \textbf{校园经历}：研究生阶段：2024.09 -- 2025.09 担任24级软件工程网络与信息二班班级团支部的组织委员，2025年9月 -- 至今担任班级团支部副团支书；本科阶段：2020.09 -- 2024.06 担任2020级计算机科学与技术10班学习委员\textbf{校级优秀学生干部}。
+  \item \textbf{校园经历}：研究生阶段：2024.09 -- 2025.09 担任24级软件工程网络与信息二班班级团支部的组织委员，2025年9月 -- 至今担任班级团支部副团支书；本科阶段：2020.09 -- 2024.06 担任2020级计算机科学与技术10班学习委员。
 \end{itemize}
 
 \end{document}
