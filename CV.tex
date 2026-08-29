@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -18,29 +17,23 @@
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
 
-
-%% 主文档字体设置
+%% 主文档字体设置（若本地无 fonts/ 目录，可改为系统字体）
 \setmainfont[
     Path = fonts/Main/,
     Extension = .otf,
-    BoldFont = texgyretermes-bold.otf, % 加粗字体
-]{texgyretermes-regular.otf} % 正文字体
+    BoldFont = texgyretermes-bold.otf,
+]{texgyretermes-regular.otf}
 
-% 中文字体设置
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
-    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
-]{NotoSansSC-Regular.otf} % 正文字体
-
+    BoldFont = NotoSansSC-Bold.ttf,
+]{NotoSansSC-Regular.otf}
 
 \usepackage{relsize}
 \usepackage{xspace}
+\usepackage{fontawesome}
 
-% 使用 fontawesome（部分图标）
-\usepackage{fontawesome} 
-
-% A4纸，上下左右边距
 \usepackage[
     a4paper,
     left=1.2cm,
@@ -50,106 +43,133 @@
     nohead
 ]{geometry}
 
-\renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
+\renewcommand{\baselinestretch}{1.25}
 
 \usepackage{titlesec}
-\usepackage{enumitem}
-\setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
+\setlist{noitemsep}
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
 \setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
-% --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.7em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
-% --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
+\setlength{\intraProjectTitleSep}{0.3em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
-% --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.15em}
 
-% =======================================================================
-
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
-\titlespacing*{\section}{0cm}{*1.6}{*1.2}
-
-
+\titleformat{\section}
+{\large\bfseries\raggedright}
+{}{0em}
+{}
+[{\color{CVBlue}\titlerule}]
+\titlespacing*{\section}{0cm}{*1.2}{*0.9}
 
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
-\begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{胡豆}} 
+%%%% 照片（有 avatar.jpg 时取消注释）
+% \begin{tikzpicture}[remember picture, overlay]
+%   \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$)
+%     {\includegraphics[height=3cm]{avatar.jpg}};
+% \end{tikzpicture}
 
-\centerline{\normalsize{\faPhone\ 111-1111-1111 \quad \faEnvelopeO\ \href{mailto:3230100000@zju.edu.cn}{3230100000@zju.edu.cn}}} 
+%%%% 校徽（有 logo 时取消注释）
+% \begin{tikzpicture}[remember picture, overlay]
+%   \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$)
+%     {\includegraphics[height=6cm]{ustc.png}};
+% \end{tikzpicture}
 
-\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
-    
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
-CC98烂坑挖掘工程与技术\quad 大二 
+\centerline{\LARGE\bfseries{单家豪}}
+
+\vspace{0.3em}
+\centerline{\normalsize{%
+  \faPhone\ 13509655329 \quad
+  \faEnvelopeO\ \href{mailto:jiahao020531@qq.com}{jiahao020531@qq.com} \quad
+  \faMapMarker\ 广东深圳
+}}
+\centerline{\normalsize{生日：2002-05 \quad 政治面貌：共青团员}}
+
+%% ==================== 教育背景 ====================
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}
+
+\textbf{中国科学技术大学} \hfill 2024.09 -- 2027.06\\[0.3em]
+软件工程\quad 硕士\quad 软件学院\quad 全日制
 \begin{itemize}[nosep]
-    \item 相关课程：《烂坑挖掘及基础》、《高级挖坑技巧》、《烂坑数理统计》
+  \item 荣誉奖项：校级优秀共青团员，校级优秀学生干部
 \end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
+\vspace{0.4em}
+\textbf{哈尔滨工业大学（深圳）} \hfill 2020.09 -- 2024.06\\[0.3em]
+计算机科学与技术\quad 本科\quad 计算机学院\quad 全日制
+\begin{itemize}[nosep]
+  \item 荣誉奖项：校级三等奖学金；第三届「大湾区杯」粤港澳金融数学建模竞赛本科组二等奖
+\end{itemize}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+%% ==================== 实习 / 项目经历 ====================
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 实习经历}
+
+\textbf{快影后端开发} \hfill 2025.09 -- 2026.04 \titlebreak
+后端开发实习生
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+  \item \textbf{AI 智能素材标注与视频包装链路建设}
+  \begin{itemize}[nosep]
+    \item \textbf{AI 特征库建设}：负责素材智能标注链路设计与研发，对接底层 AI 工作流获取视频特征；基于 \textbf{Elasticsearch} 搭建正排索引支撑毫秒级检索，并同步落盘至 DB，打通 AI 特征上下游流转。
+    \item \textbf{自动化视频包装}：扩展现有 AI 工作流系统，搭建以 AI 为核心的视频包装任务流；支持用户输入视频与风格配置后，自动检索 ES 素材特征并渲染生成 AI 视频效果，提升内容创作效率。
+  \end{itemize}
+  \item \textbf{千万级用户数据中心架构设计与优化}
+  \begin{itemize}[nosep]
+    \item \textbf{海量数据存储与同步}：针对 \textbf{5000 万}级用户底表，设计并落地 \textbf{MySQL 分表}方案；搭建定时流转任务，实现 Hive 到业务 DB 的高效增量同步，支撑下游高并发调用。
+    \item \textbf{数据库性能调优}：引入「新用户空数据过滤」机制，拦截大量无效穿透查询，降低 DB 集群压力，保障数据中心高可用。
+  \end{itemize}
+  \item \textbf{商业化 DSP 广告归因系统对接}
+  \begin{itemize}[nosep]
+    \item \textbf{多维归因链路升级}：对接多家外部广告服务商（如巨量引擎），实现投放报表自动化拉取与转化数据回传；扩充下发维度与字段，提升多维归因覆盖率与准确性。
+    \item \textbf{线上故障排查}：处理巨量引擎报表跨年拉取异常，定位并修复日期格式解析偏差，保障商业化结算数据准确性。
+  \end{itemize}
+  \item \textbf{搜索链路热词挖掘与线上稳定性治理}
+  \begin{itemize}[nosep]
+    \item \textbf{热搜词推荐与缓存加速}：搭建热搜词统计全链路，解析线上搜索日志并结合离线计算统计高频热词；引入空结果过滤，打通 Hive 至后端同步，并构建 \textbf{Local Cache} 实现极速查询。
+    \item \textbf{慢查询排查与优化}：负责 Error 日志监控与链路追踪；针对慢查询 SQL 分析执行计划并建立联合索引，提升系统吞吐量。
+  \end{itemize}
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
-% --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+\textbf{百度智能云平台 · BMR 组件开发} \hfill 2025.06 -- 2025.08 \titlebreak
+实习生\quad 百度智能云 - 通用数据部\\[0.2em]
+项目介绍：Baidu-MapReduce（BMR）为集成大数据组件的 Spark 集群，提供 Hadoop 生态能力；\textbf{bmr-monitor} 负责监控集群状态并报警，\textbf{bmr-agent} 负责采集组件信息。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+  \item 实现集群巡检任务的定期数据采集，支持周期性巡检并出具集群巡检指标报告。
+  \item 基于 BCM 平台巡检报告指标编写 Prompt，搭建 \textbf{RAG} 应用，完成智能巡检需求。
+  \item 协助组件性能测试，使用 Spark 提交 TPC-DS 任务，评估集群数据处理性能。
 \end{itemize}
 
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+%% ==================== 专业技能 ====================
+\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 专业技能}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++
-    \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
-    \item \textbf{操作系统：} Linux
+  \item \textbf{编程语言：} 熟悉 Java 基础与集合框架。
+  \item \textbf{数据库：} 熟悉 MySQL 索引、事务、锁机制；熟悉 Redis 数据结构、持久化与过期淘汰策略，了解缓存穿透/击穿/雪崩等场景。
+  \item \textbf{开发框架：} 熟练使用 Spring Boot、SpringMVC、MyBatis-Plus，熟悉 Spring IOC、AOP 原理。
+  \item \textbf{计算机基础：} 熟悉 TCP/IP 分层及 HTTP/HTTPS、TCP、UDP；熟悉进程通信与死锁等操作系统知识。
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
-    \item CC98年度用户 \hfill 2023.12
-    
+
+%% ==================== 荣誉奖项 ====================
+\section{\makebox[\widthof{\faList}][c]{\color{CVBlue}\faList}\ 荣誉奖项}
+\begin{itemize}[nosep]
+  \item 校级优秀共青团员、校级优秀学生干部 \hfill 中国科学技术大学
+  \item 哈尔滨工业大学（深圳）学业三等奖学金 \hfill 2020
+  \item 第三届「大湾区杯」粤港澳金融数学建模竞赛本科组二等奖 \hfill 2022
 \end{itemize}
-    
+
+%% ==================== 其他 ====================
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
 \begin{itemize}[parsep=0.5ex]
-    \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
-    \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
-    \item \textbf{英语水平：} CET-4, CET-6
+  \item \textbf{现居城市：} 广东深圳
+  \item \textbf{求职意向：} Java / 后端开发
 \end{itemize}
+
 \end{document}
